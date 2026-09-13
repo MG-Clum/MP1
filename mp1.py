@@ -9,6 +9,16 @@ def route(type_route):
         goto(0-(x_fenetre/5),0-(y_fenetre/10))
         down()
         goto(0+x_fenetre/5, 0-(y_fenetre/10))
+        goto(0+x_fenetre/5, 0-y_fenetre/6)
+        goto(0-(x_fenetre/5),0-(y_fenetre/6))
+        goto(0-(x_fenetre/5),0-(y_fenetre/10))
+        up()
+        for i in range(1,10):
+            up()
+            goto(0+(x_fenetre/i),0-(y_fenetre/3))
+            down()
+        
+
 
     return type_route
 
