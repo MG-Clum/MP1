@@ -29,7 +29,14 @@ def route(type_route):
 
 
 
-def etage(couleur_etage):
+def etage(couleur_etage,x_batt, y_et):
+    fenetre1_type = randint(1,3)
+    fenetre2_type = randint(1,3)
+    nb_etage_fait = 0
+
+    setheading(90)
+    position_tortue_debut_etage = position()
+
     down()
     fillcolor(couleur_etage)
     begin_fill()
@@ -43,15 +50,15 @@ def etage(couleur_etage):
     forward(140)
     end_fill()
     up()
-    
+
     if 0-(y_fenetre/10) <= 0-(y_fenetre/10) + 60:
         """création de la porte et des fenetres du 1er etage"""
         up()
         chois_porte_location = randint(1,3)
         couleur_porte = choice(door_color)
         porte_type = randint(1,2)
-        setheading(90)
-        position_tortue_debut_etage = position()
+        nb_etage_fait += 1
+        
         
         if chois_porte_location == 1:
 
@@ -98,45 +105,77 @@ def etage(couleur_etage):
                 end_fill()
                            
 
-            """fenetre position 2"""
-            goto(position_tortue_debut_etage)
-            fillcolor('white')
-            setheading(0)
-            forward(55)
-            setheading(90)
-            forward(20)
-            down()
-            begin_fill()
-            right(90)
-            forward(30)
-            lt(90)
-            forward(30)
-            lt(90)
-            forward(30)
-            lt(90)
-            forward(30)
-            up()
-            end_fill()
+            if fenetre1_type == 1 :
+                goto(position_tortue_debut_etage)
+                fillcolor('white')
+                setheading(0)
+                forward(55)
+                setheading(90)
+                forward(35)
+                setheading(270)
+                down()
+                begin_fill()
+                circle(15,360)
+                up()
+                end_fill()
 
-            """fenetre position 3"""
-            goto(position_tortue_debut_etage)
-            fillcolor('white')
-            setheading(0)
-            forward(97)
-            setheading(90)
-            forward(20)
-            down()
-            begin_fill()
-            right(90)
-            forward(30)
-            lt(90)
-            forward(30)
-            lt(90)
-            forward(30)
-            lt(90)
-            forward(30)
-            up()
-            end_fill()
+            else:
+
+                """fenetre position 2"""
+                goto(position_tortue_debut_etage)
+                fillcolor('white')
+                setheading(0)
+                forward(55)
+                setheading(90)
+                forward(20)
+                down()
+                begin_fill()
+                right(90)
+                forward(30)
+                lt(90)
+                forward(30)
+                lt(90)
+                forward(30)
+                lt(90)
+                forward(30)
+                up()
+                end_fill()
+
+            if fenetre2_type == 1:
+                goto(position_tortue_debut_etage)
+                fillcolor('white')
+                setheading(0)
+                forward(97)
+                setheading(90)
+                forward(35)
+                setheading(270)
+                down()
+                begin_fill()
+                circle(15,360)
+                up()
+                end_fill()
+
+            else:
+
+                """fenetre position 3"""
+                goto(position_tortue_debut_etage)
+                fillcolor('white')
+                setheading(0)
+                forward(97)
+                setheading(90)
+                forward(20)
+                down()
+                begin_fill()
+                right(90)
+                forward(30)
+                lt(90)
+                forward(30)
+                lt(90)
+                forward(30)
+                lt(90)
+                forward(30)
+                up()
+                end_fill()
 
         if chois_porte_location == 2:
 
@@ -182,49 +221,77 @@ def etage(couleur_etage):
                 up()
                 end_fill()
                            
+            if fenetre1_type == 1 :
+                goto(position_tortue_debut_etage)
+                fillcolor('white')
+                setheading(0)
+                forward(12.5)
+                setheading(90)
+                forward(35)
+                setheading(270)
+                down()
+                begin_fill()
+                circle(15,360)
+                up()
+                end_fill()
 
+            else:
 
+                """fenetre position 2"""
+                goto(position_tortue_debut_etage)
+                fillcolor('white')
+                setheading(0)
+                forward(12.5)
+                setheading(90)
+                forward(20)
+                down()
+                begin_fill()
+                right(90)
+                forward(30)
+                lt(90)
+                forward(30)
+                lt(90)
+                forward(30)
+                lt(90)
+                forward(30)
+                up()
+                end_fill()
 
-            """fenetre position1"""
-            goto(position_tortue_debut_etage)
-            fillcolor('white')
-            setheading(0)
-            forward(12.5)
-            setheading(90)
-            forward(20)
-            down()
-            begin_fill()
-            right(90)
-            forward(30)
-            lt(90)
-            forward(30)
-            lt(90)
-            forward(30)
-            lt(90)
-            forward(30)
-            up()
-            end_fill()
+            if fenetre2_type == 1:
+                goto(position_tortue_debut_etage)
+                fillcolor('white')
+                setheading(0)
+                forward(97)
+                setheading(90)
+                forward(35)
+                setheading(270)
+                down()
+                begin_fill()
+                circle(15,360)
+                up()
+                end_fill()
 
+            else:
 
-            """fenetre position 3"""
-            goto(position_tortue_debut_etage)
-            fillcolor('white')
-            setheading(0)
-            forward(97)
-            setheading(90)
-            forward(20)
-            down()
-            begin_fill()
-            right(90)
-            forward(30)
-            lt(90)
-            forward(30)
-            lt(90)
-            forward(30)
-            lt(90)
-            forward(30)
-            up()
-            end_fill() 
+                """fenetre position 3"""
+                goto(position_tortue_debut_etage)
+                fillcolor('white')
+                setheading(0)
+                forward(97)
+                setheading(90)
+                forward(20)
+                down()
+                begin_fill()
+                right(90)
+                forward(30)
+                lt(90)
+                forward(30)
+                lt(90)
+                forward(30)
+                lt(90)
+                forward(30)
+                up()
+                end_fill()
 
         if chois_porte_location == 3:
 
@@ -271,45 +338,192 @@ def etage(couleur_etage):
                 end_fill()
                            
 
-            """fenetre position1"""
-            goto(position_tortue_debut_etage)
-            fillcolor('white')
-            setheading(0)
-            forward(12.5)
-            setheading(90)
-            forward(20)
-            down()
-            begin_fill()
-            right(90)
-            forward(30)
-            lt(90)
-            forward(30)
-            lt(90)
-            forward(30)
-            lt(90)
-            forward(30)
-            up()
-            end_fill()
+            if fenetre1_type == 1 :
+                goto(position_tortue_debut_etage)
+                fillcolor('white')
+                setheading(0)
+                forward(12.5)
+                setheading(90)
+                forward(35)
+                setheading(270)
+                down()
+                begin_fill()
+                circle(15,360)
+                up()
+                end_fill()
 
-            """fenetre position 2"""
-            goto(position_tortue_debut_etage)
-            fillcolor('white')
-            setheading(0)
-            forward(55)
-            setheading(90)
-            forward(20)
-            down()
-            begin_fill()
-            right(90)
-            forward(30)
-            lt(90)
-            forward(30)
-            lt(90)
-            forward(30)
-            lt(90)
-            forward(30)
-            up()
-            end_fill()
+            else:
+
+                """fenetre position 2"""
+                goto(position_tortue_debut_etage)
+                fillcolor('white')
+                setheading(0)
+                forward(12.5)
+                setheading(90)
+                forward(20)
+                down()
+                begin_fill()
+                right(90)
+                forward(30)
+                lt(90)
+                forward(30)
+                lt(90)
+                forward(30)
+                lt(90)
+                forward(30)
+                up()
+                end_fill()
+
+            """fenetre cercle position 2"""
+            if fenetre2_type == 1:
+                goto(position_tortue_debut_etage)
+                fillcolor('white')
+                setheading(0)
+                forward(55)
+                setheading(90)
+                forward(35)
+                setheading(270)
+                down()
+                begin_fill()
+                circle(15,360)
+                up()
+                end_fill()
+
+                """fenetre position 2"""
+                goto(position_tortue_debut_etage)
+                fillcolor('white')
+                setheading(0)
+                forward(55)
+                setheading(90)
+                forward(20)
+                down()
+                begin_fill()
+                right(90)
+                forward(30)
+                lt(90)
+                forward(30)
+                lt(90)
+                forward(30)
+                lt(90)
+                forward(30)
+                up()
+                end_fill()
+
+    while nb_etage != nb_etage_fait :
+        goto(position_tortue_debut_etage)
+        setheading(90)
+        forward(60)
+
+        position_tortue_debut_etage = position()
+
+
+        """fenetre cercle position 1"""
+        if fenetre2_type == 1:
+        goto(position_tortue_debut_etage)
+        fillcolor('white')
+        setheading(0)
+        forward(12.5)
+        setheading(90)
+        forward(35)
+        setheading(270)
+        down()
+        begin_fill()
+        circle(15,360)
+        up()
+        end_fill()
+
+        """fenetre position 1"""
+        goto(position_tortue_debut_etage)
+        fillcolor('white')
+        setheading(0)
+        forward(12.5)
+        setheading(90)
+        forward(20)
+        down()
+        begin_fill()
+        right(90)
+        forward(30)
+        lt(90)
+        forward(30)
+        lt(90)
+        forward(30)
+        lt(90)
+        forward(30)
+        up()
+        end_fill()
+
+        """fenetre cercle position 2"""
+        if fenetre2_type == 1:
+        goto(position_tortue_debut_etage)
+        fillcolor('white')
+        setheading(0)
+        forward(55)
+        setheading(90)
+        forward(35)
+        setheading(270)
+        down()
+        begin_fill()
+        circle(15,360)
+        up()
+        end_fill()
+
+        """fenetre position 2"""
+        goto(position_tortue_debut_etage)
+        fillcolor('white')
+        setheading(0)
+        forward(55)
+        setheading(90)
+        forward(20)
+        down()
+        begin_fill()
+        right(90)
+        forward(30)
+        lt(90)
+        forward(30)
+        lt(90)
+        forward(30)
+        lt(90)
+        forward(30)
+        up()
+        end_fill()
+
+
+        """fenetre cercle position 3"""
+        if fenetre2_type == 1:
+        goto(position_tortue_debut_etage)
+        fillcolor('white')
+        setheading(0)
+        forward(97)
+        setheading(90)
+        forward(35)
+        setheading(270)
+        down()
+        begin_fill()
+        circle(15,360)
+        up()
+        end_fill()
+
+        """fenetre position 3"""
+        goto(position_tortue_debut_etage)
+        fillcolor('white')
+        setheading(0)
+        forward(97)
+        setheading(90)
+        forward(20)
+        down()
+        begin_fill()
+        right(90)
+        forward(30)
+        lt(90)
+        forward(30)
+        lt(90)
+        forward(30)
+        lt(90)
+        forward(30)
+        up()
+        end_fill()
+
+        nb_etage_fait += 1
 
         
         
@@ -325,3 +539,5 @@ done()
 #git addd .
 #git commit -m "commitn"
 #git push -u origin main
+
+#faire fenetre ronde
