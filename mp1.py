@@ -4,6 +4,7 @@ x_fenetre = 1920
 y_fenetre = 1080
 setup(x_fenetre, y_fenetre, 0 ,0)
 speed(100)
+up()
 
 color = [
     "white", "black", "red", "green", "blue", "yellow",
@@ -368,6 +369,51 @@ def premier_etage(couleur_immeuble, porte_pose1, porte_pose2, porte_pose3, fenet
 
     return position_tortue_debut_etage_x, position_tortue_debut_etage_y
 
+def balcon(x, y, emplacement):
+    if emplacement == 1:
+        x_emplacement = 12.5
+    elif emplacement == 2:
+        x_emplacement = 55
+    elif emplacement == 3:
+        x_emplacement = 97
+    else:
+        return
+
+    largeur = 34
+    debord = 6
+
+    goto(x + x_emplacement - 2, y + 20)
+    setheading(0)
+    down()
+    fillcolor("gray")
+    begin_fill()
+    forward(largeur)
+    right(90)
+    forward(debord)
+    right(90)
+    forward(largeur)
+    right(90)
+    forward(debord)
+    end_fill()
+    up()
+
+    nb_barres = 6
+    espace = largeur / (nb_barres - 1)
+    pencolor("dimgray")
+    for i in range(nb_barres):
+        goto(x + x_emplacement - 2 + i * espace, y + 20)
+        setheading(90)
+        down()
+        forward(15)
+        up()
+
+    goto(x + x_emplacement - 2, y + 35)
+    setheading(0)
+    down()
+    forward(largeur)
+    up()
+    pencolor("black")
+
 def etage(couleur_immeuble, position_tortue_debut_etage_x, position_tortue_debut_etage_y, fenetre_pose1, fenetre_pose2, fenetre_pose3):
     goto(position_tortue_debut_etage_x, position_tortue_debut_etage_y)
     setheading(90)
@@ -385,8 +431,16 @@ def etage(couleur_immeuble, position_tortue_debut_etage_x, position_tortue_debut
     up()
 
     fenetre_pose1(randint(1, 3), position_tortue_debut_etage_x, position_tortue_debut_etage_y)
+    if randint(1, 4) == 1:
+        balcon(position_tortue_debut_etage_x, position_tortue_debut_etage_y, 1)
+
     fenetre_pose2(randint(1, 3), position_tortue_debut_etage_x, position_tortue_debut_etage_y)
+    if randint(1, 4) == 1:
+        balcon(position_tortue_debut_etage_x, position_tortue_debut_etage_y, 2)
+
     fenetre_pose3(randint(1, 3), position_tortue_debut_etage_x, position_tortue_debut_etage_y)
+    if randint(1, 4) == 1:
+        balcon(position_tortue_debut_etage_x, position_tortue_debut_etage_y, 3)
 
     return position_tortue_debut_etage_x, position_tortue_debut_etage_y
 
@@ -451,10 +505,6 @@ def toit_arrondi(x, y, couleur_toit):
 
     return x, y
 
-
-
-
-
 def immeuble(x_depart, y_depart, style_toit):
     goto(x_depart, y_depart)
 
@@ -480,10 +530,15 @@ def immeuble(x_depart, y_depart, style_toit):
     elif style_toit == "pointu_cheminer":
             toit_pointu_cheminer(x, y, couleur_toit)
     
-    
+def quartier(nb_immeubles, x_depart, y_depart, espace):
+    x = x_depart
+
+    for i in range(nb_immeubles):
+        immeuble(x, y_depart, None)
+        x += 140 + espace
 
 
-immeuble(0,0,None)
+quartier(6, -400, -300, 20)
 
 done()
 
