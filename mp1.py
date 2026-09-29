@@ -538,6 +538,134 @@ def quartier(nb_immeubles, x_depart, y_depart, espace):
         x += 140 + espace
 
 
+def soleil():
+    x, y = -500, 250  
+
+    pensize(6)
+    pencolor("orange")
+    for i in range(12):
+        up()
+        goto(x, y)
+        setheading(i * 30)
+        forward(90)
+        down()
+        forward(40)
+    up()
+
+    pensize(3)
+    goto(x, y - 70)
+    setheading(0)
+    fillcolor("yellow")
+    down()
+    begin_fill()
+    circle(70)
+    end_fill()
+    up()
+
+
+def lune():
+    x, y = -600, 250
+
+    pencolor("white")
+    fillcolor("white")
+    up()
+    goto(x, y - 60)
+    setheading(0)
+    down()
+    begin_fill()
+    circle(60)
+    end_fill()
+    up()
+
+    pencolor("midnightblue")
+    fillcolor("midnightblue")
+    goto(x + 30, y - 50)
+    down()
+    begin_fill()
+    circle(55)
+    end_fill()
+    up()
+
+
+def etoiles():
+    for i in range(100):
+        up()
+        goto(randint(-960,960), randint(-540, 540))
+        dot(randint(3, 6), "white")
+
+
+def nuage(x, y, couleur="white"):
+    pencolor(couleur)
+    fillcolor(couleur)
+    up()
+    goto(x + 0, y)
+    setheading(0)
+    down()
+    begin_fill()
+    circle(40)
+    end_fill()
+
+    up()
+    goto(x + 50, y)
+    setheading(0)
+    down()
+    begin_fill()
+    circle(40)
+    end_fill()
+
+    up()
+    goto(x + 100, y)
+    setheading(0)
+    down()
+    begin_fill()
+    circle(40)
+    end_fill()
+    up()
+
+
+def pluie():
+    pencolor("blue")
+    pensize(2)
+    for i in range(150):
+        up()
+        goto(randint(-900, 900), randint(-280, 300))
+        setheading(255)
+        down()
+        forward(15)
+    up()
+
+
+def meteo():
+    type_meteo = choice(["soleil", "nuage", "pluie", "nuit"])
+
+    if type_meteo == "soleil":
+        bgcolor("lightskyblue")
+        soleil()
+
+    elif type_meteo == "nuage":
+        bgcolor("lightsteelblue")
+        nuage(-700, 300)
+        nuage(-100, 280)
+        nuage(400, 320)
+
+    elif type_meteo == "pluie":
+        bgcolor("slategray")
+        nuage(-700, 320, "gray")
+        nuage(-100, 300, "gray")
+        nuage(400, 330, "gray")
+        pluie()
+
+    elif type_meteo == "nuit":
+        bgcolor("midnightblue")
+        etoiles()
+        lune()
+
+    
+    pencolor("black")
+    pensize(1)
+
+
+meteo()
 quartier(6, -400, -300, 20)
 
 done()
