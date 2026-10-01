@@ -14,19 +14,6 @@ color = [
     "khaki", "turquoise", "orchid", "plum", "tan", "beige"
 ]
 
-def route(type_route):
-    if type_route == 1:
-        up()
-        goto(0-(x_fenetre/5),0-(y_fenetre/10))
-        down()
-        goto(0+x_fenetre/5, 0-(y_fenetre/10))
-        goto(0+x_fenetre/5.2, 0-y_fenetre/6)
-        goto(0-(x_fenetre/5.2),0-(y_fenetre/6))
-        goto(0-(x_fenetre/5),0-(y_fenetre/10))
-        up()
-    return None
-
-
 def porte_pose1(porte_type, position_tortue_debut_etage_x, position_tortue_debut_etage_y):
     if porte_type == 1 :
         """fenetre position1 type 1"""
@@ -664,12 +651,28 @@ def meteo():
     pencolor("black")
     pensize(1)
 
+def route():
+    up()
+    goto(-x_fenetre / 2, -300)
+    setheading(0)
+    fillcolor("dimgray")
+    begin_fill()
+    forward(x_fenetre)
+    right(90)
+    forward(80)
+    right(90)
+    forward(x_fenetre)
+    right(90)
+    forward(80)
+    end_fill()
+    up()
 
 meteo()
-quartier(6, -400, -300, 20)
+route()
+quartier(5, -400, -300, 20)
 
 done()
 
-#git addd .
-#git commit -m "commitn"
+#git add .
+#git commit -m "commit"
 #git push -u origin main
