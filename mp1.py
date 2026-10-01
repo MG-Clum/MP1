@@ -431,7 +431,6 @@ def etage(couleur_immeuble, position_tortue_debut_etage_x, position_tortue_debut
 
     return position_tortue_debut_etage_x, position_tortue_debut_etage_y
 
-
 def toit_pointu(x, y, couleur_toit):
     goto(x, y)
     setheading(0)
@@ -524,7 +523,6 @@ def quartier(nb_immeubles, x_depart, y_depart, espace):
         immeuble(x, y_depart, None)
         x += 140 + espace
 
-
 def soleil():
     x, y = -500, 250  
 
@@ -549,7 +547,6 @@ def soleil():
     end_fill()
     up()
 
-
 def lune():
     x, y = -600, 250
 
@@ -573,13 +570,11 @@ def lune():
     end_fill()
     up()
 
-
 def etoiles():
     for i in range(100):
         up()
         goto(randint(-960,960), randint(-540, 540))
         dot(randint(3, 6), "white")
-
 
 def nuage(x, y, couleur="white"):
     pencolor(couleur)
@@ -608,7 +603,6 @@ def nuage(x, y, couleur="white"):
     circle(40)
     end_fill()
     up()
-
 
 def pluie():
     pencolor("blue")
@@ -670,7 +664,6 @@ def route():
 meteo()
 route()
 quartier(5, -400, -300, 20)
-
 done()
 
 #git add .
